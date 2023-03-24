@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+.form{
+  margin: 10px;
+  border: 2px solid black;
+  height: 260px;
+  width: 270px;
+  padding: 10px;
+  border-radius:15px
+}
