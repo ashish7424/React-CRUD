@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../App.css"
 
 function Home() {
   const [fname, setFname] = useState("");
@@ -79,6 +80,7 @@ function Home() {
   };
   return (
     <div>
+    <div className="div">
       <form className="form">
         <label>First Name :</label>
         <br />
@@ -86,7 +88,7 @@ function Home() {
           type="text"
           value={fname}
           onChange={(e) => setFname(e.target.value)}
-          placeholder="enter firstname"
+          placeholder="Enter Your  Firstname...."
         />
         <br />
         <br />
@@ -96,7 +98,7 @@ function Home() {
           type="text"
           value={lname}
           onChange={(e) => setLname(e.target.value)}
-          placeholder="enter lastname"
+          placeholder="Enter Your  Lastname...."
         />
         <br />
         <br />
@@ -106,27 +108,30 @@ function Home() {
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="enter email"
+          placeholder="Enter Your Email...."
         />
         <br />
         <br />
         <label>Password :</label>
         <br />
         <input
-          type="text"
+          type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="enter password"
+          placeholder="Enter Your Password...."
         />
         <br />
         <br />
-        <button onClick={handlesubmit}>{isedit ? "Update" : "Submit"}</button>
+        <button onClick={handlesubmit} className='submit-btn'>{isedit ? "Update" : "Submit"}</button>
       </form>
+      </div>
       <br />
-      <table border="1">
+      <div className="table">
+      <table className="customers">
         <tbody>
           <tr>
 
+            <th>Sr No.</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
@@ -137,19 +142,21 @@ function Home() {
           {userData.map((item, index) => {
             return (
               <tr key={index}>
+                <td>{index+1}</td>
                 <td>{item.fname}</td>
                 <td>{item.lname}</td>
                 <td>{item.email}</td>
                 <td>{item.password}</td>
                 <td>
-                  <button onClick={() => onEdit(item, index)}>Edit</button>
-                  <button onClick={() => onDelete(index)}>Delete</button>
+                  <button className="edit-btn" onClick={() => onEdit(item, index)}>Edit</button>
+                  <button className="delete-btn" onClick={() => onDelete(index)}>Delete</button>
                 </td>
               </tr>
             );
           })}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }
